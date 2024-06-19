@@ -1,12 +1,12 @@
 # The Following are required by ClusterTool and CANNOT be removed:
-VIP: 10.0.0.3
+VIP: 10.0.0.2
 MASTER1IP: 10.0.0.2
 GATEWAY: 10.0.0.1
 PODNET: 172.16.0.0/16
 SVCNET: 172.17.0.0/16
 METALLB_RANGE: 10.0.0.200-10.0.0.254
-KUBEAPPS_IP: 10.0.0.4
-DASHBOARD_IP: 10.0.0.5
+KUBEAPPS_IP: 10.0.0.3
+DASHBOARD_IP: 10.0.0.4
 # These are currently not used
 EMAIL: ""
 CLOUDFLARE_TOKEN: ""
