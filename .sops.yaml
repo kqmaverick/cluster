@@ -1,0 +1,12 @@
+creation_rules:
+  - path_regex: cluster.*\.secret.ya?ml
+    encrypted_regex: "((?i)(displayname|email|pass|ca|id|bootstraptoken|secretboxencryptionsecret|secrets|secrets|password|cert|secret($|[^N])|key|token|^data$|^stringData))"
+    age: age1s7p5gd8cw5rm0k3tw67mnr9wx560lqc2lkd9nyxycl9xwr6jx47s76q9cx
+  - path_regex: .*\.secret
+    encrypted_regex: "((?i)(displayname|email|pass|ca|id|bootstraptoken|secretboxencryptionsecret|secrets|secrets|password|cert|secret($|[^N])|key|token|^data$|^stringData))"
+    age: age1s7p5gd8cw5rm0k3tw67mnr9wx560lqc2lkd9nyxycl9xwr6jx47s76q9cx
+  - path_regex: talenv.yaml
+    age: age1s7p5gd8cw5rm0k3tw67mnr9wx560lqc2lkd9nyxycl9xwr6jx47s76q9cx
+  - path_regex: talsecret.yaml
+    encrypted_regex: "((?i)(displayname|email|pass|ca|id|bootstraptoken|secretboxencryptionsecret|secrets|secrets|password|cert|secret($|[^N])|key|token|^data$|^stringData))"
+    age: age1s7p5gd8cw5rm0k3tw67mnr9wx560lqc2lkd9nyxycl9xwr6jx47s76q9cx
