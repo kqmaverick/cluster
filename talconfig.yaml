@@ -48,7 +48,7 @@ controlPlane:
             systemExtensions:
                 officialExtensions:
                     - siderolabs/iscsi-tools
-                    - siderolabs/qemu-guest-agent
+                    # - siderolabs/qemu-guest-agent
                     # Enable where needed
                     # - siderolabs/amd-ucode
                     # - siderolabs/bnx2-bnx2x
@@ -69,7 +69,7 @@ worker:
                     # - siderolabs/amd-ucode
                     # - siderolabs/bnx2-bnx2x
                     - siderolabs/iscsi-tools
-                    - siderolabs/qemu-guest-agent
+                    # - siderolabs/qemu-guest-agent
                     # - siderolabs/drbd
                     # - siderolabs/gasket-driver
                     # - siderolabs/i915-ucode
