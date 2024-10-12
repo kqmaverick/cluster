@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: schematics
-  namespace: system-upgrade
-data:
-
-  192.168.0.4: 307878d09ef3153a9752322f2c3e420151aa35181d9bf8f0520880df82194efb
