@@ -3,4 +3,3 @@ kind: Kustomization
 resources:
   - kubernetes-dashboard/ks.yaml
   - librespeed/ks.yaml
-  - librespeed2/ks.yaml
