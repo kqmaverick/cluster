@@ -5,3 +5,5 @@ resources:
   - system-upgrade-controller-plans/ks.yaml
   - metallb-config/ks.yaml
   - clusterissuer/ks.yaml
+  - blocky/ks.yaml
+  - traefik/ks.yaml
