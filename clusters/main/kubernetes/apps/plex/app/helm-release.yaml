@@ -50,3 +50,13 @@ spec:
             paths:
               - path: /
                 pathType: Prefix
+        tls:
+          - hosts:
+              - plex.${BASE_DOMAIN}
+            clusterIssuer: cluster-cert
+    persistence:
+      media:
+        enabled: true
+        type: nfs
+        path: /mnt/Storage/Storage
+        server: 192.168.0.2
