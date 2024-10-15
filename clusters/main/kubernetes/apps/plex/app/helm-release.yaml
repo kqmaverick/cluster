@@ -55,8 +55,9 @@ spec:
               - plex.${BASE_DOMAIN}
             clusterIssuer: cluster-cert
     persistence:
-      Storage:
+      media:
         enabled: true
         type: nfs
         path: /mnt/Storage/Storage
+        mountPath: /Storage
         server: 192.168.0.2
