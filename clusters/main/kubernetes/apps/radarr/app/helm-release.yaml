@@ -3,14 +3,14 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: plex
-  namespace: plex
+  name: radarr
+  namespace: radarr
 spec:
   interval: 15m
   chart:
     spec:
-      chart: plex
-      version: 19.3.1
+      chart: radarr
+      version: 23.8.0
       sourceRef:
         kind: HelmRepository
         name: truecharts
@@ -29,16 +29,12 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    plex:
-      # User Defined
-      serverIP: ${PLEX_IP}
-      additionalAdvertiseURL: "https://192.168.0.13:32400,http://192.168.0.13:32400,http://plex.test.kqmav.com:32400,,https://plex.test.kqmav.com"
-      disableGDM: true
-      requireHTTPS: false
-    service:
+    metrics:
       main:
-        type: LoadBalancer
-        loadBalancerIP: ${PLEX_IP}
+        enabled: false
+    workload:
+      exportarr:
+        enabled: false
     ingress:
       main:
         enabled: true
@@ -46,13 +42,13 @@ spec:
           traefik:
             enabled: true
         hosts:
-          - host: plex.${BASE_DOMAIN}
+          - host: radarr.${BASE_DOMAIN}
             paths:
               - path: /
                 pathType: Prefix
         tls:
           - hosts:
-              - plex.${BASE_DOMAIN}
+              - radarr.${BASE_DOMAIN}
             clusterIssuer: cluster-cert
     persistence:
       Storage:
