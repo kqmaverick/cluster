@@ -4,3 +4,4 @@ resources:
   - kubernetes-dashboard/ks.yaml
   - plex/ks.yaml
   - radarr/ks.yaml
+  - nextcloud/ks.yaml
