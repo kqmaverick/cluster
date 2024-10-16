@@ -35,6 +35,7 @@ spec:
         initialAdminPassword: ${ADMIN_PASSWORD}
       general:
         default_phone_region: US
+        accessIP: ${TRAEFIK_IP}
       collabora:
         enabled: true
         username: ${ADMIN}
