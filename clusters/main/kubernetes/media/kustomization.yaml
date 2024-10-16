@@ -3,3 +3,5 @@ kind: Kustomization
 resources:
   - flaresolverr/ks.yaml
   - prowlarr/ks.yaml
+  - plex/ks.yaml
+  - radarr/ks.yaml

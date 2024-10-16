@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m
-  path: clusters/main/kubernetes/apps/radarr/app
+  path: clusters/main/kubernetes/media/radarr/app
   prune: true
   sourceRef:
     kind: GitRepository
