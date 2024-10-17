@@ -94,6 +94,7 @@ spec:
         allowPrivilegeEscalation: true
         privileged: true
         PUID: 0
+        UMASK: "002"
         capabilities:
           add:
             - NET_ADMIN
