@@ -62,7 +62,7 @@ spec:
     persistence:
       config: 
         enabled: true
-        mountPath: config
+        mountPath: /config
       localtime:
         enabled: true
         type: hostPath
