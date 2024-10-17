@@ -65,6 +65,7 @@ spec:
         mountPath: /config
       localtime:
         enabled: true
+        readOnly: true
         type: hostPath
         mountPath: /etc/localtime
         hostPath: /etc/localtime
