@@ -68,26 +68,26 @@ spec:
         type: hostPath
         mountPath: /etc/localtime
         hostPath: /etc/localtime
-  ingress:
-    main:
-      enabled: true
-      integrations:
-        traefik:
-          enabled: true
-      hosts:
-        - host: qbittorrent.${BASE_DOMAIN}
-          paths:
-            - path: /
-              pathType: Prefix
-      tls:
-        - hosts:
-            - qbittorrent.${BASE_DOMAIN}
-          clusterIssuer: cluster-cert
-  securityContext:
-    container:
-      runAsNonRoot: false
-      readOnlyRootFilesystem: false
-      runAsUser: 0
-      runAsGroup: 0
-      allowPrivilegeEscalation: true
-      PUID: 0
+    ingress:
+      main:
+        enabled: true
+        integrations:
+          traefik:
+            enabled: true
+        hosts:
+          - host: qbittorrent.${BASE_DOMAIN}
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - qbittorrent.${BASE_DOMAIN}
+            clusterIssuer: cluster-cert
+    securityContext:
+      container:
+        runAsNonRoot: false
+        readOnlyRootFilesystem: false
+        runAsUser: 0
+        runAsGroup: 0
+        allowPrivilegeEscalation: true
+        PUID: 0
