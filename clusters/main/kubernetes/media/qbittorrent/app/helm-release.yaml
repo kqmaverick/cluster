@@ -56,9 +56,9 @@ spec:
         type: ClusterIP
         ports: 
           main:
-          port: 10095
-          targetPort: 10095
-          protocol: http
+            port: 10095
+            targetPort: 10095
+            protocol: http
     persistence:
       config: 
         enabled: true
