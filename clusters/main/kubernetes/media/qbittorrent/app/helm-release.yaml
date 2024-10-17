@@ -29,66 +29,65 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    app-template:
-      image:
-        repository: binhex/arch-qbittorrentvpn
-        pullPolicy: IfNotPresent
-        tag: 5.0.0-1-01@sha256:d274ca2e9fa2c57339b61676ab571d2c2e6a35226ddb7ab9d08107a59a816748
-      workload:
-        main:
-          podSpec:
-            main:
-              env:
-                VPN_USER: ${VPN_USER}
-                VPN_PASS: ${VPN_PASS}
-                VPN_PROV: pia
-                VPN_CLIENT: wireguard
-                VPN_ENABLED: yes
-                STRICT_PORT_FORWARD: yes
-                ENABLE_PRIVOXY: no
-                LAN_NETWORK: 192.168.0.0/24
-                NAME_SERVERS: 8.8.8.8,8.8.4.4,1.1.1.1,1.0.0.1
-                VPN_INPUT_PORTS: 1234
-                VPN_OUTPUT_PORTS: 5678
-                DEBUG: false
-                WEBUI_PORT: 10095
-      service:
-        main:
-          type: ClusterIP
-          ports: 
-           main:
-            port: 10095
-            targetPort: 10095
-            protocol: http
-      persistence:
-        config: 
-          enabled: true
-          mountPath: config
-        localtime:
-          enabled: true
-          type: hostPath
-          mountPath: /etc/localtime
-          hostPath: /etc/localtime
-    ingress:
+    image:
+      repository: binhex/arch-qbittorrentvpn
+      pullPolicy: IfNotPresent
+      tag: 5.0.0-1-01@sha256:d274ca2e9fa2c57339b61676ab571d2c2e6a35226ddb7ab9d08107a59a816748
+    workload:
       main:
+        podSpec:
+          main:
+            env:
+              VPN_USER: ${VPN_USER}
+              VPN_PASS: ${VPN_PASS}
+              VPN_PROV: pia
+              VPN_CLIENT: wireguard
+              VPN_ENABLED: yes
+              STRICT_PORT_FORWARD: yes
+              ENABLE_PRIVOXY: no
+              LAN_NETWORK: 192.168.0.0/24
+              NAME_SERVERS: 8.8.8.8,8.8.4.4,1.1.1.1,1.0.0.1
+              VPN_INPUT_PORTS: 1234
+              VPN_OUTPUT_PORTS: 5678
+              DEBUG: false
+              WEBUI_PORT: 10095
+    service:
+      main:
+        type: ClusterIP
+        ports: 
+          main:
+          port: 10095
+          targetPort: 10095
+          protocol: http
+    persistence:
+      config: 
         enabled: true
-        integrations:
-          traefik:
-            enabled: true
-        hosts:
-          - host: qbittorrent.${BASE_DOMAIN}
-            paths:
-              - path: /
-                pathType: Prefix
-        tls:
-          - hosts:
-              - qbittorrent.${BASE_DOMAIN}
-            clusterIssuer: cluster-cert
-    securityContext:
-      container:
-        runAsNonRoot: false
-        readOnlyRootFilesystem: false
-        runAsUser: 0
-        runAsGroup: 0
-        allowPrivilegeEscalation: true
-        PUID: 0
+        mountPath: config
+      localtime:
+        enabled: true
+        type: hostPath
+        mountPath: /etc/localtime
+        hostPath: /etc/localtime
+  ingress:
+    main:
+      enabled: true
+      integrations:
+        traefik:
+          enabled: true
+      hosts:
+        - host: qbittorrent.${BASE_DOMAIN}
+          paths:
+            - path: /
+              pathType: Prefix
+      tls:
+        - hosts:
+            - qbittorrent.${BASE_DOMAIN}
+          clusterIssuer: cluster-cert
+  securityContext:
+    container:
+      runAsNonRoot: false
+      readOnlyRootFilesystem: false
+      runAsUser: 0
+      runAsGroup: 0
+      allowPrivilegeEscalation: true
+      PUID: 0
