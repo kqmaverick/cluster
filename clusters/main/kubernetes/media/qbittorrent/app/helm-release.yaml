@@ -92,6 +92,7 @@ spec:
         runAsUser: 0
         runAsGroup: 568
         allowPrivilegeEscalation: true
+        privileged: true
         PUID: 0
         capabilities:
           add:
