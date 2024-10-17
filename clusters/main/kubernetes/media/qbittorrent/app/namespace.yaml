@@ -4,8 +4,3 @@ metadata:
   name: qbittorrent
   labels:
     pod-security.kubernetes.io/enforce: privileged
-spec:
-  securityContext:
-    sysctls:
-    - name: net.ipv4.conf.all.src_valid_mark
-      value: "1"

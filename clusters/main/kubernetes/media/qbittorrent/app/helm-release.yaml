@@ -96,3 +96,7 @@ spec:
         capabilities:
           add:
             - NET_ADMIN
+      pod:
+        sysctls:
+          - name: net.ipv4.conf.all.src_valid_mark
+            value: "1"
