@@ -93,3 +93,6 @@ spec:
         runAsGroup: 0
         allowPrivilegeEscalation: true
         PUID: 0
+        capabilities:
+          add:
+            - NET_ADMIN
