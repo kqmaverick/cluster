@@ -43,7 +43,7 @@ spec:
                 VPN_PASS: ${VPN_PASS}
                 VPN_PROV: pia
                 VPN_CLIENT: openvpn
-                VPN_ENABLED: yes
+                VPN_ENABLED: no
                 STRICT_PORT_FORWARD: yes
                 ENABLE_PRIVOXY: no
                 LAN_NETWORK: 192.168.0.0/24
@@ -98,3 +98,11 @@ spec:
         capabilities:
           add:
             - NET_ADMIN
+    addons:
+      codeserver:
+        enabled: true
+        service:
+          type: "LoadBalancer"
+          ports:
+            codeserver:
+              port: 12321
