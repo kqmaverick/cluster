@@ -52,6 +52,19 @@ spec:
                 VPN_OUTPUT_PORTS: 5678
                 DEBUG: false
                 WEBUI_PORT: 10095
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              port: 10095
+            readiness:
+              enabled: true
+              type: http
+              port: 10095
+            startup:
+              enabled: true
+              type: http
+              port: 10095
     service:
       main:
         type: ClusterIP
