@@ -43,7 +43,7 @@ spec:
                 VPN_PASS: ${VPN_PASS}
                 VPN_PROV: pia
                 VPN_CLIENT: openvpn
-                VPN_ENABLED: no
+                VPN_ENABLED: yes
                 STRICT_PORT_FORWARD: yes
                 ENABLE_PRIVOXY: no
                 LAN_NETWORK: 192.168.0.0/24
