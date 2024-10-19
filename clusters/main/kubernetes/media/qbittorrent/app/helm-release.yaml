@@ -100,7 +100,7 @@ spec:
             - NET_ADMIN
     addons:
       codeserver:
-        enabled: true
+        enabled: false
         service:
           type: "LoadBalancer"
           ports:
