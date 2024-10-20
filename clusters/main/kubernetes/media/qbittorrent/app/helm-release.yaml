@@ -52,22 +52,9 @@ spec:
                 VPN_OUTPUT_PORTS: 5678
                 DEBUG: false
                 WEBUI_PORT: 10095
-          probes:
-            liveness:
-              enabled: true
-              type: http
-              port: 10095
-            readiness:
-              enabled: true
-              type: http
-              port: 10095
-            startup:
-              enabled: true
-              type: http
-              port: 10095
     service:
       main:
-        type: LoadBalancer
+        type: ClusterIP
         ports: 
           main:
             port: 10095
@@ -111,25 +98,3 @@ spec:
         capabilities:
           add:
             - NET_ADMIN
-    addons:
-      codeserver:
-        enabled: false
-        service:
-          type: "LoadBalancer"
-          ports:
-            codeserver:
-              port: 12321
-        ingress:
-          enabled: true
-          integrations:
-            traefik:
-              enabled: true
-          hosts:
-            - host: qbittorrent-cs.${BASE_DOMAIN}
-              paths:
-                - path: /
-                  pathType: Prefix
-          tls:
-            - hosts:
-                - qbittorrent-cs.${BASE_DOMAIN}
-              clusterIssuer: cluster-cert
