@@ -52,6 +52,13 @@ spec:
                 VPN_OUTPUT_PORTS: 5678
                 DEBUG: false
                 WEBUI_PORT: 10095
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
     service:
       main:
         type: ClusterIP
@@ -98,3 +105,22 @@ spec:
         capabilities:
           add:
             - NET_ADMIN
+    addons:
+      codeserver:
+        enabled: false
+        service:
+          type: ClusterIP
+        ingress:
+          enabled: true
+          integrations:
+            traefik:
+              enabled: true
+          hosts:
+            - host: qbittorrent-cs.${BASE_DOMAIN}
+              paths:
+                - path: /
+                  pathType: Prefix
+          tls:
+            - hosts:
+                - qbittorrent-cs.${BASE_DOMAIN}
+              clusterIssuer: cluster-cert
