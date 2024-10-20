@@ -42,9 +42,9 @@ spec:
                 VPN_USER: ${VPN_USER}
                 VPN_PASS: ${VPN_PASS}
                 VPN_PROV: pia
-                VPN_CLIENT: openvpn
+                VPN_CLIENT: wireguard
                 VPN_ENABLED: yes
-                STRICT_PORT_FORWARD: yes
+                STRICT_PORT_FORWARD: no
                 ENABLE_PRIVOXY: no
                 LAN_NETWORK: 172.16.0.0/16,192.168.0.0/24
                 NAME_SERVERS: 8.8.8.8,8.8.4.4,1.1.1.1,1.0.0.1
