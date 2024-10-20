@@ -43,7 +43,7 @@ spec:
                 VPN_PASS: ${VPN_PASS}
                 VPN_PROV: pia
                 VPN_CLIENT: wireguard
-                VPN_ENABLED: yes
+                VPN_ENABLED: no
                 STRICT_PORT_FORWARD: no
                 ENABLE_PRIVOXY: no
                 LAN_NETWORK: 172.16.0.0/16,192.168.0.0/24
