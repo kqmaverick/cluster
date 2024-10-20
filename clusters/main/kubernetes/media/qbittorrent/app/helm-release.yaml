@@ -99,6 +99,8 @@ spec:
           add:
             - NET_ADMIN
             - SYS_MODULE
+            - NET_RAW
+            - MKNOD
     addons:
       codeserver:
         enabled: false
