@@ -119,3 +119,17 @@ spec:
           ports:
             codeserver:
               port: 12321
+        ingress:
+          enabled: true
+          integrations:
+            traefik:
+              enabled: true
+          hosts:
+            - host: qbittorrent-cs.${BASE_DOMAIN}
+              paths:
+                - path: /
+                  pathType: Prefix
+          tls:
+            - hosts:
+                - qbittorrent-cs.${BASE_DOMAIN}
+              clusterIssuer: cluster-cert
