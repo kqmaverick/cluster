@@ -107,7 +107,7 @@ spec:
             - NET_ADMIN
     addons:
       codeserver:
-        enabled: false
+        enabled: true
         service:
           type: ClusterIP
         ingress:
