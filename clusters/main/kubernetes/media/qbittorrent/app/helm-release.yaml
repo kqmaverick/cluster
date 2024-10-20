@@ -67,7 +67,7 @@ spec:
               port: 10095
     service:
       main:
-        type: ClusterIP
+        type: LoadBalancer
         ports: 
           main:
             port: 10095
