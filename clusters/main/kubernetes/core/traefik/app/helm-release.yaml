@@ -76,7 +76,7 @@ spec:
         enabled: true
         integrations:
           traefik:
-            enabled: true
+            enabled: false
         tls:
           - hosts:
               - traefik.${BASE_DOMAIN}
