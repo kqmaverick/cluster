@@ -6,3 +6,4 @@ resources:
   - system-upgrade-controller-plans/ks.yaml
   - blocky/ks.yaml
   - clusterissuer/ks.yaml
+  - traefik/ks.yaml
