@@ -32,7 +32,7 @@ spec:
     keepHistory: false
   values:
     extraTpl:
-      - {{ fail (toYaml (lookup "traefik.io/v1alpha1" "Middleware" "" "")) }}
+      - '{{ fail (toYaml (lookup "traefik.io/v1alpha1" "Middleware" "" "")) }}'
     logs:
       general:
         # By default, the level is set to ERROR. Alternative logging levels are DEBUG, PANIC, FATAL, ERROR, WARN, and INFO.
