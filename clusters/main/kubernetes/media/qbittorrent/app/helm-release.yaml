@@ -41,10 +41,30 @@ spec:
     keepHistory: false
   values:
     service:
+      main:
+        ports:
+          main:
+            port: 10095
+      torrent:
+        enabled: true
+        ports:
+          torrent:
+            enabled: true
+            port: 6881
+            protocol: tcp
+          torrentudp:
+            enabled: true
+            port: "{{ .Values.service.torrent.ports.torrent.port }}"
+            protocol: udp
       gluetun:
         enabled: true
-        type: LoadBalancer
+        type: ClusterIP
         ports:
+          gluetun:
+            enabled: true
+            port: 8000
+            targetPort: 8000
+            protocol: http
           proxy:
             enabled: true
             port: 8888
