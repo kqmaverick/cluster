@@ -63,6 +63,7 @@ spec:
           OPENVPN_PASSWORD: "${VPN_PASS}"
           SERVER_REGIONS: "CA Vancouver"
           HTTPPROXY: on
+          FIREWALL_INPUT_PORTS: 10095,8888,8000
     ingress:
       main:
         enabled: true
