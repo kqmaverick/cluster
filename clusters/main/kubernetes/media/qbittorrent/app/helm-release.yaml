@@ -40,6 +40,10 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    qbitportforward:
+      enabled: false
+      QBT_USERNAME: "admin"
+      QBT_PASSWORD: "adminadmin"
     service:
       main:
         ports:
@@ -58,17 +62,19 @@ spec:
             protocol: udp
       gluetun:
         enabled: true
-        type: ClusterIP
         ports:
           gluetun:
             enabled: true
             port: 8000
             targetPort: 8000
             protocol: http
+      proxy:
+        enabled: true
+        ports:
           proxy:
             enabled: true
             port: 8888
-            targetport: 8888
+            targetPort: 8888
             protocol: http
     addons:
       vpn:
