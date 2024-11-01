@@ -31,6 +31,8 @@ spec:
   values:
     service:
       gluetun:
+        enabled: true
+        type: LoadBalancer
         ports:
           proxy:
             enabled: true
