@@ -41,7 +41,7 @@ spec:
     keepHistory: false
   values:
     qbitportforward:
-      enabled: false
+      enabled: true
       QBT_USERNAME: "admin"
       QBT_PASSWORD: "adminadmin"
     service:
