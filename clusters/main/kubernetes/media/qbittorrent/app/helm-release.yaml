@@ -95,7 +95,7 @@ spec:
         enabled: true
         integrations:
           traefik:
-            enabled: false
+            enabled: true
         tls:
           - hosts:
               - qbittorrent.${BASE_DOMAIN}
