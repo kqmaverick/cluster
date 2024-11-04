@@ -44,38 +44,6 @@ spec:
       enabled: true
       QBT_USERNAME: "admin"
       QBT_PASSWORD: "adminadmin"
-    service:
-      main:
-        ports:
-          main:
-            port: 10095
-      torrent:
-        enabled: true
-        ports:
-          torrent:
-            enabled: true
-            port: 6881
-            protocol: tcp
-          torrentudp:
-            enabled: true
-            port: "{{ .Values.service.torrent.ports.torrent.port }}"
-            protocol: udp
-      gluetun:
-        enabled: true
-        ports:
-          gluetun:
-            enabled: true
-            port: 8000
-            targetPort: 8000
-            protocol: http
-      proxy:
-        enabled: true
-        ports:
-          proxy:
-            enabled: true
-            port: 8888
-            targetPort: 8888
-            protocol: http
     addons:
       vpn:
         type: gluetun
@@ -87,10 +55,9 @@ spec:
           VPN_SERVICE_PROVIDER: "private internet access"
           OPENVPN_USER: "${VPN_USER}"
           OPENVPN_PASSWORD: "${VPN_PASS}"
-          SERVER_REGIONS: "CA Vancouver"
+          # SERVER_REGIONS: "CA Vancouver"
           VPN_PORT_FORWARDING: on
-          HTTPPROXY: on
-          FIREWALL_INPUT_PORTS: 10095,8888,8000
+          FIREWALL_INPUT_PORTS: 10095,8000
     ingress:
       main:
         enabled: true
