@@ -33,6 +33,7 @@ spec:
       main:
         ports:
           main:
+            enabled: true
             type: LoadBalancer
             port: 10184
             targetPort: 8090
