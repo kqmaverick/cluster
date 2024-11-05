@@ -29,6 +29,8 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    global:
+      stopAll: true
     service:
       main:
         type: LoadBalancer
