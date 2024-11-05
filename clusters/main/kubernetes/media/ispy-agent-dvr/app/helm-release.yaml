@@ -29,26 +29,18 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    service:
+    ingress:
       main:
-        ports:
-          main:
+        enabled: true
+        integrations:
+          traefik:
             enabled: true
-            type: LoadBalancer
-            port: 10184
-            targetPort: 8090
-    # ingress:
-      # main:
-        # enabled: true
-        # integrations:
-          # traefik:
-            # enabled: true
-        # tls:
-          # - hosts:
-              # - ispy.${BASE_DOMAIN}
-            # clusterIssuer: cluster-cert
-        # hosts:
-          # - host: ispy.${BASE_DOMAIN}
-            # paths:
-              # - path: /
-                # pathType: Prefix
+        tls:
+          - hosts:
+              - ispy.${BASE_DOMAIN}
+            clusterIssuer: cluster-cert
+        hosts:
+          - host: ispy.${BASE_DOMAIN}
+            paths:
+              - path: /
+                pathType: Prefix
