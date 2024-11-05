@@ -40,6 +40,7 @@ spec:
             targetPort: 8090
       turn:
         enabled: true
+        type: LoadBalancer
         ports:
           turn:
             enabled: true
@@ -48,6 +49,7 @@ spec:
             targetPort: 3478
       webrtc:
         enabled: true
+        type: LoadBalancer
         ports:
           webrtc0:
             enabled: true
