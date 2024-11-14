@@ -40,6 +40,10 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    qbitportforward:
+      enabled: true
+      QBT_USERNAME: "${ADMIN}"
+      QBT_PASSWORD: "${ADMIN_PASSWORD}"
     addons:
       vpn:
         type: gluetun
