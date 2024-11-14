@@ -52,7 +52,6 @@ spec:
           VPN_TYPE: "openvpn"
           OPENVPN_USER: "${VPN_USER}"
           OPENVPN_PASSWORD: "${VPN_PASS}"
-          SERVER_REGIONS: "CA Vancouver"
     ingress:
       main:
         enabled: true
