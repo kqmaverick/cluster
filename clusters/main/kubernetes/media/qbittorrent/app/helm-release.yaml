@@ -1,0 +1,70 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.zinn.ca/helm.toolkit.fluxcd.io/helmrelease_v2beta1.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: qbittorrent
+  namespace: qbittorrent
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: qbittorrent
+      version: 22.1.6
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+      interval: 15m
+  postRenderers:
+  - kustomize:
+      patches:
+        - target:
+            version: v1
+            kind: Deployment
+            name: qbittorrent
+          patch: |
+            - op: add
+              path: /spec/template/spec/containers/1/resources/limits/truecharts.org~1tun
+              value: 1
+  timeout: 20m
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    addons:
+      vpn:
+        type: gluetun
+        killSwitch: true
+        excludedNetworks_IPv4:
+          - "192.168.0.0/24"
+        excludedNetworks_IPv6: []
+        env:
+          VPN_SERVICE_PROVIDER: "private internet access"
+          VPN_TYPE: "openvpn"
+          OPENVPN_USER: "${VPN_USER}"
+          OPENVPN_PASSWORD: "${VPN_PASS}"
+          SERVER_REGIONS: "CA Vancouver"
+    ingress:
+      main:
+        enabled: true
+        integrations:
+          traefik:
+            enabled: true
+        tls:
+          - hosts:
+              - qbittorrent.${DOMAIN_0}
+            clusterIssuer: domain-0-wildcard
+        hosts:
+          - host: qbittorrent.${DOMAIN_0}
+            paths:
+              - path: /
+                pathType: Prefix
