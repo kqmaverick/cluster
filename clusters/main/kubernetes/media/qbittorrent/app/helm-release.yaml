@@ -58,6 +58,7 @@ spec:
           OPENVPN_PASSWORD: "${VPN_PASS}"
           VPN_PORT_FORWARDING: true
           PORT_FORWARD_ONLY: true
+          FIREWALL_INPUT_PORTS: 10095,8000
     ingress:
       main:
         enabled: true
