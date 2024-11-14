@@ -52,6 +52,8 @@ spec:
           VPN_TYPE: "openvpn"
           OPENVPN_USER: "${VPN_USER}"
           OPENVPN_PASSWORD: "${VPN_PASS}"
+          VPN_PORT_FORWARDING: true
+          PORT_FORWARD_ONLY: true
     ingress:
       main:
         enabled: true
