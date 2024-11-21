@@ -65,6 +65,9 @@ spec:
         integrations:
           traefik:
             enabled: true
+            middlewares:
+              - name: internal-only
+              - name: auth
         tls:
           - hosts:
               - qbittorrent.${DOMAIN_0}

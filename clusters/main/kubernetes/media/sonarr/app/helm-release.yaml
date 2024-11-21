@@ -33,6 +33,12 @@ spec:
       main:
         enabled: false
     workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              env:
+                SONARR__AUTH__METHOD: external
       exportarr:
         enabled: false
     ingress:
@@ -41,6 +47,9 @@ spec:
         integrations:
           traefik:
             enabled: true
+            middlewares:
+              - name: internal-only
+              - name: auth
         tls:
           - hosts:
               - sonarr.${DOMAIN_0}
