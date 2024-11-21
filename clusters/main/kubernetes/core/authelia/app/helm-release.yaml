@@ -30,7 +30,7 @@ spec:
     keepHistory: false
   values:
     domain: test.kqmav.com
-    default_redirection_url: https://test.kqmav.com
+    default_redirection_url: https://auth.test.kqmav.com
     authentication_backend:
       ldap:
         enabled: true

@@ -53,3 +53,21 @@ spec:
             paths:
               - path: /
                 pathType: Prefix
+    middlewares:
+      forwardAuth:
+        - name: auth
+          address: http://authelia.authelia.svc.cluster.local:9091/api/verify?rd=https://auth.test.kqmav.com/
+          authResponseHeaders: 
+            - Remote-User
+            - Remote-Group
+            - Remote-Name
+            - Remote-Email
+          trustForwardHeader: true
+      ipWhiteList:
+        - name: internal-only
+          sourceRange:
+            - 10.0.0.0/8
+            - 172.1.0.0/12
+            - 192.168.0.0/16
+          ipStrategy:
+            depth: 0
