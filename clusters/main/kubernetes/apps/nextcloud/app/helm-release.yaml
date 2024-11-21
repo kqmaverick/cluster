@@ -1,0 +1,57 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.zinn.ca/helm.toolkit.fluxcd.io/helmrelease_v2beta1.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: nextcloud
+  namespace: nextcloud
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: nextcloud
+      version: 32.2.11
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+      interval: 15m
+  timeout: 20m
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    nextcloud:
+      credentials:
+        initialAdminUser: ${ADMIN}
+        initialAdminPassword: ${ADMIN_PASSWORD}
+      general:
+        default_phone_region: US
+        accessIP: ${TRAEFIK_IP}
+      collabora:
+        enabled: true
+        username: ${ADMIN}
+        password: ${ADMIN_PASSWORD}
+    ingress:
+      main:
+        enabled: true
+        integrations:
+          traefik:
+            enabled: true
+        tls:
+          - hosts:
+              - nextcloud.${DOMAIN_0}
+            clusterIssuer: domain-0-wildcard
+        hosts:
+          - host: nextcloud.${DOMAIN_0}
+            paths:
+              - path: /
+                pathType: Prefix
