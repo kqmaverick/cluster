@@ -47,6 +47,8 @@ spec:
         display_name_attribute: displayName
         user: uid=admin,ou=people,dc=test,dc=kqmav,dc=com
         plain_password: ${ADMIN_PASSWORD}
+      file:
+       enabled: false
     notifier:
       smtp:
         enabled: true
@@ -55,6 +57,8 @@ spec:
         username: ${EMAIL}
         plain_password: ${EMAIL_PASSWORD}
         sender: no-reply@kqmav.com
+      filesystem:
+        enabled: false
     access_control:
       rules:
         - domain:
