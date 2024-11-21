@@ -74,3 +74,10 @@ spec:
             paths:
               - path: /
                 pathType: Prefix
+    persistence:
+      media:
+        enabled: true
+        type: nfs
+        path: /mnt/Storage/Storage
+        mountPath: /Storage
+        server: 192.168.0.2
