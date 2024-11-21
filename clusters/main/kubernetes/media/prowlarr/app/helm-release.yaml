@@ -35,7 +35,7 @@ spec:
           containers:
             main:
               env:
-                RADARR__AUTH__METHOD: external
+                PROWLARR__AUTH__METHOD: external
     ingress:
       main:
         enabled: true
