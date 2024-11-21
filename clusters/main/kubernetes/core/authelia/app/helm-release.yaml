@@ -74,10 +74,10 @@ spec:
             enabled: true
         tls:
           - hosts:
-              - authelia.${DOMAIN_0}
+              - auth.${DOMAIN_0}
             clusterIssuer: domain-0-wildcard
         hosts:
-          - host: authelia.${DOMAIN_0}
+          - host: auth.${DOMAIN_0}
             paths:
               - path: /
                 pathType: Prefix
