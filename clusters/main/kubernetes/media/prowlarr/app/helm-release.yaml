@@ -39,14 +39,12 @@ spec:
     ingress:
       main:
         enabled: true
-        middlewares:
-          - name: internal-only
-            namespace: traefik
-          - name: auth
-            namespace: traefik
         integrations:
           traefik:
             enabled: true
+            middlewares:
+              - name: internal-only
+              - name: auth
         tls:
           - hosts:
               - prowlarr.${DOMAIN_0}
