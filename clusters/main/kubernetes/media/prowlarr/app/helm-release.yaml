@@ -29,9 +29,19 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              env:
+                RADARR__AUTH__METHOD: external
     ingress:
       main:
         enabled: true
+        middlewares:
+          - name: internal-only
+          - name: auth
         integrations:
           traefik:
             enabled: true
