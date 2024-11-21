@@ -63,6 +63,7 @@ spec:
             - Remote-Name
             - Remote-Email
           trustForwardHeader: true
+          tls: []
       ipWhiteList:
         - name: internal-only
           sourceRange:
