@@ -56,7 +56,7 @@ spec:
         plain_password: ${EMAIL_PASSWORD}
         sender: no-reply@kqmav.com
     access_control:
-      rules: []
+      rules:
         - domain:
           - "*.test.kqmav.com"
           - test.kqmav.com
