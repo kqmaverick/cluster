@@ -39,10 +39,19 @@ spec:
         loadBalancerIP: ${BLOCKY_IP}
         type: LoadBalancer
     blocking:
+      blacklist:
+      - name: mylist
+        lists:
+        - https://raw.githubusercontent.com/PolishFiltersTeam/KADhosts/master/KADhosts.txt
+        - https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Spam/hosts
+        - https://v.firebog.net/hosts/static/w3kbl.txt
       clientGroupsBlock:
         - name: default
           groups:
             []
+        - name: mylist
+          groups:
+            - default
     k8sgateway:
       # -- list of processed domains
       domains:
