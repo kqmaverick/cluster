@@ -39,8 +39,10 @@ spec:
         loadBalancerIP: ${BLOCKY_IP}
         type: LoadBalancer
     blocking:
-      # blacklist:
-      # whitelist:
+      clientGroupsBlock:
+        - name: default
+          groups:
+            []
     k8sgateway:
       # -- list of processed domains
       domains:
