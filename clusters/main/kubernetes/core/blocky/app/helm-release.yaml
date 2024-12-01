@@ -48,10 +48,7 @@ spec:
       clientGroupsBlock:
         - name: default
           groups:
-            []
-        - name: mylist
-          groups:
-            - default
+            - mylist
     k8sgateway:
       # -- list of processed domains
       domains:
