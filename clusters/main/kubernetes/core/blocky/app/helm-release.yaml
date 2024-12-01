@@ -38,6 +38,9 @@ spec:
         externalTrafficPolicy: Local
         loadBalancerIP: ${BLOCKY_IP}
         type: LoadBalancer
+    blocking:
+      # blacklist:
+      # whitelist:
     k8sgateway:
       # -- list of processed domains
       domains:
